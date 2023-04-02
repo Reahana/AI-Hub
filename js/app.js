@@ -54,7 +54,9 @@ const displayAIs = tools =>{
         
         `
         aisContainer.appendChild(aiDiv); 
-         })
+         });
+         // stop spinner or loader
+    toggleSpinner(false);
          
     }
 
@@ -91,7 +93,9 @@ const displayAIs = tools =>{
             
             `
             aisContainer.appendChild(aiDiv); 
-         })
+         });
+         // stop spinner or loader
+    toggleSpinner(false);
     }
 
     const loadAiDetail = id => {
@@ -186,5 +190,14 @@ const displayAIs = tools =>{
        
         `
     }
-
+    const toggleSpinner = isLoading => {
+        const loaderSection = document.getElementById('loader');
+        if(isLoading){
+            loaderSection.classList.remove('d-none')
+        }
+        else{
+            loaderSection.classList.add('d-none');
+        }
+    }
+    toggleSpinner(true);
     loadAIs();
