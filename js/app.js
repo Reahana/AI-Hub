@@ -45,7 +45,7 @@ const displayAIs = tools =>{
             <div class="card-footer bg-white">
                 <div class="float-start">
                     <h5 class="card-title ">${tool.name}</h5>
-                    <small class="">${tool.published_in}</small>
+                    <small class=""><i class="fa-regular fa-calendar"> </i> ${tool.published_in}</small>
                 </div>
                 <button onclick="loadAiDetail(${tool.id})" type="button"  class="float-end btn btn-danger-subtle" data-bs-toggle="modal" data-bs-target="#aiDetails">
                 <i class="text-danger fs-2 fa-regular fa-circle-right "></i>
@@ -95,8 +95,10 @@ const displayAIs = tools =>{
             </div>
             
             `
+
             aisContainer.appendChild(aiDiv); 
          });
+         
          // stop spinner or loader
     toggleSpinner(false);
     }
@@ -180,7 +182,7 @@ const displayAIs = tools =>{
 
                 <div class="card">
                    
-                    <img src="${tool.image_link[0]}" class="p-3 img-fluid" alt="..."> 
+                    <img src="${tool.image_link[0]}" class="p-3  img-fluid" alt="..."> 
                 
                     <div class="card-body text-center">
                         <h4 class="card-title">${tool.input_output_examples[0].input}  </h5>
