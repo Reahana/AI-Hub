@@ -1,3 +1,4 @@
+
 const loadAIs = async()=>{
     const url = 'https://openapi.programming-hero.com/api/ai/tools';
     try{
@@ -9,6 +10,7 @@ const loadAIs = async()=>{
     console.log(error)
     }
 }
+
 const loadAllAIs = async()=>{
     const url = 'https://openapi.programming-hero.com/api/ai/tools';
     try{
@@ -21,11 +23,10 @@ const loadAllAIs = async()=>{
     }
 }
 const displayAIs = tools =>{
-    const tests = tools.slice(0,6);
-    console.log(tests);
     const aisContainer = document.getElementById('ais-container');
         aisContainer.innerText = ''
-        tests.forEach(tool => {
+        tools = tools.slice(0,6);
+        tools.forEach(tool => {
             console.log(tool)
             const aiDiv = document.createElement('div');
         aiDiv.classList.add('col');
@@ -51,7 +52,6 @@ const displayAIs = tools =>{
                 </button>
             </div>
         </div>
-        
         `
         aisContainer.appendChild(aiDiv); 
          });
@@ -59,7 +59,10 @@ const displayAIs = tools =>{
     toggleSpinner(false);
          
     }
-
+    document.getElementById('loadAll').addEventListener('click', function(){
+        
+        loadAllAIs();
+    })
    
 
     const displayAllAIs = tools =>{
@@ -74,7 +77,7 @@ const displayAIs = tools =>{
                 <img src="${tool.image}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Features</h5>
-                <ol>
+                    <ol>
                         <li>${tool.features[0]}</li>
                         <li>${tool.features[1]}</li>
                         <li>${tool.features[2]}</li>
@@ -201,3 +204,4 @@ const displayAIs = tools =>{
     }
     toggleSpinner(true);
     loadAIs();
+  
