@@ -1,15 +1,24 @@
 const loadAIs = async()=>{
     const url = 'https://openapi.programming-hero.com/api/ai/tools';
+    try{
     const res = await fetch(url);
     const data = await res.json();
     displayAIs(data.data.tools);
-
+    }
+    catch(error){
+    console.log(error)
+    }
 }
 const loadAllAIs = async()=>{
     const url = 'https://openapi.programming-hero.com/api/ai/tools';
+    try{
     const res = await fetch(url);
     const data = await res.json();
     displayAllAIs(data.data.tools);
+    }
+    catch(error){
+    console.log(error)
+    }
 }
 const displayAIs = tools =>{
     const tests = tools.slice(0,6);
